@@ -15,6 +15,7 @@
                             </p>
                             <a href="{{ route('comics.show', $item->id) }}" class="btn btn-primary">Go somewhere</a>
                             <a href="{{ route('comics.edit', $item->id) }}" class="btn btn-primary">Edit</a>
+                           
                         </div>
                     </div>
                 @endforeach

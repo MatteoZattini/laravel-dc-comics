@@ -5,7 +5,8 @@
     <div class="row">
         <div class="col-12">
             <h1>Modifica {{ $comic->title }}</h1>
-            <form method="POST" action="{{ route("comics.store") }}">
+            <form method="POST" action="{{ route("comics.update", $comic->id) }}">
+                @method('PUT')
                 @csrf
 
                 <div class="mb-3">
