@@ -16,19 +16,28 @@ class ComicsTableSeeder extends Seeder
     {
 
         $data = config("data");
+        $fumetti = $data["comics"];
 
-        for ($i=0; $i < count($data["comics"]); $i++) { 
+        for ($i=0; $i < count($fumetti); $i++) {
+            
+            $fumetto = $fumetti[$i];
             
             $comic = new Comic();
-            $comic->title = $data["comics"][$i]["title"];
-            $comic->description = $data["comics"][$i]["description"];
-            $comic->thumb = $data["comics"][$i]["thumb"];
-            $comic->price = $data["comics"][$i]["price"];
-            $comic->series = $data["comics"][$i]["series"];
-            $comic->sale_date = $data["comics"][$i]["sale_date"];
-            $comic->type = $data["comics"][$i]["type"];
+            $comic->title = $fumetto["title"];
+            $comic->description = $fumetto["description"];
+            $comic->thumb = $fumetto["thumb"];
+            $comic->price = $fumetto["price"];
+            $comic->series = $fumetto["series"];
+            $comic->sale_date = $fumetto["sale_date"];
+            $comic->type = $fumetto["type"];
             $comic->save();
         }
+
+        // foreach ($fumetti as $fumetto) {
+            
+        //     $comic = new Comic();
+        //     $comic->title = $fumetto["title"];
+        // }
 
     }
 }
