@@ -15,7 +15,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" value="{{ $comic->description }}"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" value="">{{ $comic->description }}</textarea>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Thumb</label>
@@ -38,6 +38,14 @@
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Type" name="type" value="{{ $comic->type }}">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+            <form>
+                @csrf
+                @method('DELETE')
+                {{-- <button class="btn btn-danger" type="submit" value="elimina"></button> --}}
+                <button class="btn btn-danger" type="submit" formmethod="POST" formaction="{{ route('comics.destroy', $comic->id) }}">elimina</button>
+
             </form>
         </div>
     </div>
